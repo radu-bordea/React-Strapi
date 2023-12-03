@@ -66,8 +66,8 @@ html {
 
 body {
   background: var(--backgroundColor);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 400;
   line-height: 1;
   color: var(--textColor);
@@ -260,7 +260,6 @@ PROJECT CSS
 body {
   background: var(--primary-500);
 }
-
 /* 
 ============= 
 Navbar
@@ -273,7 +272,6 @@ nav {
   align-items: center;
   justify-content: center;
 }
-
 .nav-center {
   width: var(--fluid-width);
   max-width: var(--max-width);
@@ -281,14 +279,12 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-
 .logo {
   text-transform: none;
   color: var(--white);
   letter-spacing: 3px;
   font-weight: 700;
 }
-
 .toggle-btn {
   width: 2rem;
   height: 2rem;
@@ -299,17 +295,14 @@ nav {
   transition: var(--transition);
   cursor: pointer;
 }
-
 .toggle-btn:hover {
   transform: scale(1.05);
 }
-
 /* 
 ============= 
 Hero
 =============== 
 */
-
 .hero-container {
   min-height: calc(100vh - 5rem);
   display: grid;
@@ -327,7 +320,6 @@ Hero
   font-weight: 700;
   line-height: 1.25;
 }
-
 .hero-center p {
   line-height: 1.5;
 }
@@ -336,12 +328,10 @@ Hero
   .hero-center {
     text-align: center;
   }
-
   .hero-center p {
     max-width: 35em;
     margin: 0 auto;
   }
-
   .toggle-btn {
     display: none;
   }
@@ -364,8 +354,7 @@ Sidebar
   opacity: 0;
   visibility: hidden;
 }
-
-.show-sidebar{
+.show-sidebar {
   opacity: 1;
   visibility: visible;
   transition-property: opacity;
@@ -388,11 +377,9 @@ Sidebar
   right: 1rem;
   cursor: pointer;
 }
-
 .sidebar article {
   margin-bottom: 2rem;
 }
-
 .sidebar h4 {
   margin-bottom: 1rem;
   color: var(--primary-700);
@@ -412,14 +399,97 @@ Sidebar
   align-items: center;
   gap: 1rem;
 }
-
 .sidebar-sublinks svg {
   color: var(--grey-500);
 }
-
 @media screen and (min-width: 992px) {
-  .sidebar{
+  .sidebar {
     display: none;
+  }
+}
 
+/* 
+============= 
+Nav Links
+=============== 
+*/
+.nav-links {
+  display: none;
+}
+@media screen and (min-width: 992px) {
+  .nav-links {
+    display: flex;
+    justify-content: center;
+
+    align-self: stretch;
+  }
+  .nav-center {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+  .nav-link {
+    padding: 0 1rem;
+    color: var(--white);
+    background: transparent;
+    border-color: transparent;
+    font-size: 1.25rem;
+    text-transform: capitalize;
+    letter-spacing: var(--letterSpacing);
+    cursor: pointer;
+  }
+}
+
+/* 
+============= 
+Submenu
+=============== 
+*/
+.submenu {
+  display: none;
+}
+@media screen and (min-width: 992px) {
+  .submenu {
+    display: block;
+    position: fixed;
+    top: 7rem;
+    left: 50%;
+    width: var(--fluid-width);
+    max-width: var(--max-width);
+    background: var(--white);
+    padding: 2rem;
+    transform: rotateX(-90deg) translateX(-50%);
+    transform-origin: top;
+    perspective: 1000px;
+    border-radius: var(--borderRadius);
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    z-index: -1;
+  }
+  .show-submenu {
+    visibility: visible;
+    opacity: 1;
+    transform: rotateX(0deg) translateX(-50%);
+    z-index: 10;
+  }
+  .submenu h5 {
+    margin-bottom: 1rem;
+    color: var(--primary-700);
+  }
+  .submenu-links {
+    display: grid;
+    row-gap: 0.5rem;
+  }
+  .submenu-links a {
+    display: block;
+    color: var(--grey-900);
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .submenu-links svg {
+    color: var(--grey-500);
   }
 }
